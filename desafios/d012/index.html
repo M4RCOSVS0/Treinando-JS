@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        body{ font: 12pt Arial; }
+        button{ font-size: 12pt; padding: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <button onclick="preço()">Verificar</button>  
+    <section id="resultado">
+        <p>Clique no botão acima para analisar a mudança de preço.</p>
+    </section>  
+</body>
+</html>
+<script>
+    function preço(){
+        let ant = Number(window.prompt("Qual era o preço anterior do produto?"))
+        let atu = Number(window.prompt("Qual e o preço atual do produto?"))
+        let res = window.document.getElementById('resultado')
+        res.innerHTML = `<h1>Analisando os valores informados</h1>`
+        res.innerHTML += `<p>O produto custava R$ ${ant},00 e agora custa R$ ${atu},00. </p>`
+        if(ant < atu){
+            res.innerHTML += `<p>Hoje o produto está mais caro.</p>`    
+            dif = atu - ant
+            res.innerHTML += `<p>O preço subiu R$${dif},00 em relação ao preço anterior. </p>`
+            pcent = (atu/ant - 1) * 100
+            resul = pcent.toFixed(1)
+            res.innerHTML += `<p>Uma variação de ${resul}% pra cima. </p>` 
+              
+        }else{
+            res.innerHTML += `<p>Hoje o produto está mais barato</p>`
+            dif = ant - atu
+            res.innerHTML += `<p>O preço caiu R$${dif},00 em relação ao preço  anterior</p> `
+            pcent = (ant/atu - 1) * 100
+            resul = pcent.toFixed(2)
+            res.innerHTML += `<p>Uma variação de ${resul}% pra baixo. </p>` 
+        }
+        
+    }
+</script>

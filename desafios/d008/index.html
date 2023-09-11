@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Desconto</title>
+    <style>
+        body{font: 12pt Arial;}
+        button{font-size: 12pt; padding: 30px;}
+    </style>
+</head>
+<body>
+    <H1>Calcular Desconto</H1>          
+    <button onclick="dezconto()">Desconto de 10%</button> 
+    <section id="resultado">
+        <p>Clique no botão a cima para iniciar.</p>
+    </section>
+</body>
+</html>
+    <script>
+        function dezconto(){
+            let dez = 0
+            let prod = window.prompt("Qual é o produto que você está comprando?")
+            let preço = Number(window.prompt(`Qual é o preço do ${prod} ?`))
+            let res = window.document.querySelector("section#resultado")
+            res.innerHTML = (`<h1>Calculando o desconto de 10% de desconto para ${prod}</h1>`)
+            res.innerHTML += (`<p>O preço original era de R$${preço} </p>`)
+            dez = Number(preço * 0.1)
+            res.innerHTML += (`<p>você acaba de ganhar R$${dez} </p>`)
+            res.innerHTML += (`<p>No fim, você vai pagar R$${preço - dez} no produto ${prod}</p>`)
+        }
+    </script>

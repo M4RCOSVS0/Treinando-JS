@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> US$</title>
+    <style>
+        body{font: 12pt Arial;}
+        button{font-size: 12pt; padding: 30px;}
+    </style>
+</head>
+<body>
+    <h1>Conversor R$ > US$</h1>  
+    <button onclick="Converte()">Converter</button>
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>  
+</body>
+</html>
+    <script>
+        let cot = Number(window.prompt("Antes de mais nada. Quanto está a cotação do dólar agora?"))
+        function Converte(){
+            let cart = Number(window.prompt("Quantos R$ você tem na carteira?"))
+            let dol = 0
+            let res = window.document.querySelector('section#resultado')
+            res.innerHTML = `<h1>O valor R$${cart} em doláres é...</h1>`
+            res.innerHTML += `<p> cerca de  US$${Math.round(dol = cart/cot)}</p>`
+        }
+    </script>
